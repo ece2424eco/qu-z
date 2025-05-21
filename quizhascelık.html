@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini Quiz Sitesi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .quiz-container {
+      max-width: 700px;
+      width: 100%;
+      background: white;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+    .question {
+      margin-bottom: 30px;
+    }
+    .question h3 {
+      margin-bottom: 12px;
+      color: #222;
+    }
+    .options button {
+      display: block;
+      width: 100%;
+      margin: 6px 0;
+      padding: 12px;
+      font-size: 16px;
+      border: 2px solid #bbb;
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    .options button:hover:not(:disabled) {
+      background-color: #f0f0f0;
+    }
+    .options button.correct {
+      background-color: #c8e6c9;
+      border-color: #388e3c;
+      color: #2e7d32;
+      font-weight: bold;
+    }
+    .options button.incorrect {
+      background-color: #ffcdd2;
+      border-color: #d32f2f;
+      color: #c62828;
+    }
+    .options button:disabled {
+      cursor: default;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Mini Quiz</h1>
+
+    <div class="question">
+      <h3>1. Busenin mesleği nedir?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, false)">A) Türkçe öğretmenliği</button>
+        <button onclick="checkAnswer(this, true)">B) İngilizce öğretmenliği</button>
+        <button onclick="checkAnswer(this, false)">C) Anaokulu öğretmenliği</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>2. Nesly'nin dershane ismi nedir?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, false)">A) Maltepe Fen</button>
+        <button onclick="checkAnswer(this, false)">B) Maltepe Birey</button>
+        <button onclick="checkAnswer(this, true)">C) Maltepe VIP</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>3. Fatoş’un güvenlik görevlisi olarak çalıştığı yer neresidir?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, true)">A) Cevahir AVM</button>
+        <button onclick="checkAnswer(this, false)">B) Neomarin AVM</button>
+        <button onclick="checkAnswer(this, false)">C) Marina</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>4. Busenin Uğur’u kaydettiği şekil nasıldır?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, false)">A) Uğurum</button>
+        <button onclick="checkAnswer(this, true)">B) Uğur Böceğim</button>
+        <button onclick="checkAnswer(this, false)">C) Girişimcim</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>5. Nesly’nin odasında çamaşır kurutulma sebebi nedir?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, false)">A) Yer yok</button>
+        <button onclick="checkAnswer(this, true)">B) En iyi güneş orada</button>
+        <button onclick="checkAnswer(this, false)">C) Çamaşırlık orada</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>6. Fatoş’un şaraptan anladığını gösteren replik hangisidir?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, true)">A) Köpek Öldüren</button>
+        <button onclick="checkAnswer(this, false)">B) Kan Kırmızısı</button>
+        <button onclick="checkAnswer(this, false)">C) Yıllanmış Şarap</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>7. 3. bölümde Nesly sinir krizi geçirirken pantolon deseni nasıldı?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, true)">A) Sol taraf kalp</button>
+        <button onclick="checkAnswer(this, false)">B) Sağ taraf kalp</button>
+        <button onclick="checkAnswer(this, false)">C) Kalp yok</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>8. “Bana 2 tane besleme verdiler, ben napim? Alsam alırdım havuzlu ev.” sözü kime aittir?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, true)">A) Hülya</button>
+        <button onclick="checkAnswer(this, false)">B) Fatoş</button>
+        <button onclick="checkAnswer(this, false)">C) Buse</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>9. Aleyna Tilki, Çaka’yla otururken taytının deseni nedir?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, false)">A) Düz</button>
+        <button onclick="checkAnswer(this, true)">B) Leoparlı</button>
+        <button onclick="checkAnswer(this, false)">C) Çizgili</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>10. Fatoş, Bedri’yi ne kadar süre sonra çıkacak olarak bilirken kandırıldığını anlamıştır?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, true)">A) 2 hafta</button>
+        <button onclick="checkAnswer(this, false)">B) 1 hafta</button>
+        <button onclick="checkAnswer(this, false)">C) 5 gün</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>11. Uğur’a sürekli nereden bildirim geliyor?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, true)">A) Mackolik</button>
+        <button onclick="checkAnswer(this, false)">B) Ortağı</button>
+        <button onclick="checkAnswer(this, false)">C) Sahibinden</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>12. Hascelikler her yere ne ile gider?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, false)">A) Makyaj malzemesi</button>
+        <button onclick="checkAnswer(this, true)">B) Misafir ayakkabısı</button>
+        <button onclick="checkAnswer(this, false)">C) Yeni kıyafet</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>13. Busenin kafasında patlattığı ayran markası hangisidir?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, false)">A) İçim büyük boy</button>
+        <button onclick="checkAnswer(this, true)">B) Sek küçük boy</button>
+        <button onclick="checkAnswer(this, false)">C) Sütaş küçük boy</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>14. “Sen dün azdın, bugün çoktun.” sözü kime aittir?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, false)">A) Fatoş</button>
+        <button onclick="checkAnswer(this, true)">B) Nesly</button>
+        <button onclick="checkAnswer(this, false)">C) Buse</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>15. “Ektiğim nohut biçtiğim nohut halabe gitti de lenlebı oldu.” sözü kime aittir?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, true)">A) Hülya</button>
+        <button onclick="checkAnswer(this, false)">B) Buse</button>
+        <button onclick="checkAnswer(this, false)">C) Fatoş</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>16. Fatoş, Busenin sözünde kapı açılmadan hemen önce ne yaptı?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, false)">A) Saçını savurmak</button>
+        <button onclick="checkAnswer(this, true)">B) Ayakkabı tekmelemek</button>
+        <button onclick="checkAnswer(this, false)">C) Sigara yakmak</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>17. Buse sözünde her şeyi yiyen ve Müge Anlı izleyen kimdir?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, false)">A) Nermin Abla</button>
+        <button onclick="checkAnswer(this, true)">B) Bedia Hala</button>
+        <button onclick="checkAnswer(this, false)">C) Nurten Teyze</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>18. Son bölümde çalan şarkı adı nedir?</h3>
+      <div class="options">
+        <button onclick="checkAnswer(this, false)">A) Çaka - Nesly</button>
+        <button onclick="checkAnswer(this, true)">B) M Lisa - Ac Yaralar</button>
+        <button onclick="checkAnswer(this, false)">C) Bülbüller Güllere</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function checkAnswer(button, isCorrect) {
+      const options = button.parentElement.querySelectorAll('button');
+      options.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        button.classList.add('correct');
+      } else {
+        button.classList.add('incorrect');
+        // Doğru cevabı da göster
+        options.forEach(btn => {
+          if (btn !== button && btn.getAttribute('onclick').includes('true')) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>
+
+
